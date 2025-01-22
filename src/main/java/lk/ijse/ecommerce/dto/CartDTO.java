@@ -11,4 +11,9 @@ public class CartDTO {
     private int cartId;
     private int productId;
     private int quantity;
+
+    public CartDTO(int productId, int quantity) {
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 }

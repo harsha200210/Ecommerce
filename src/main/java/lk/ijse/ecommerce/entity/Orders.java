@@ -25,4 +25,11 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_USER"))
     private Users user;
+
+    public Orders(Date date, double total, List<OrderDetails> orderDetails, Users user) {
+        this.date = date;
+        this.total = total;
+        this.orderDetails = orderDetails;
+        this.user = user;
+    }
 }

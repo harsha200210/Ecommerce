@@ -22,4 +22,15 @@ public class OrdersDAOImpl implements OrdersDAO{
 
         return ordersList;
     }
+
+    @Override
+    public void save(Orders orders) throws Exception {
+        Session session = FactoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(orders);
+
+        transaction.commit();
+        session.close();
+    }
 }

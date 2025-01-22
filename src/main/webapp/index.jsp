@@ -1,5 +1,6 @@
 <%@ page import="lk.ijse.ecommerce.dto.ProductsDTO" %>
 <%@ page import="java.util.List" %>
+<%@ page import="lk.ijse.ecommerce.controller.LoginServlet" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html lang="en">
 <head>
@@ -208,10 +209,10 @@
 <% }
   String checked = request.getParameter("checked");
   String username = request.getParameter("username");
-  if (checked != null && checked.equals("true")) {
+  if (LoginServlet.username != null) {
 %>
 <script>
-  document.getElementById('name-div').innerText = "<%=username%>";
+  document.getElementById('name-div').innerText = "<%=LoginServlet.username%>";
   document.getElementById("login-div").style.display = "none";
 </script>
 <%}%>
@@ -221,7 +222,7 @@
 <script>
   $('#name-div').hide();
   <%
-   if (checked != null && checked.equals("true")) {
+   if (LoginServlet.username != null) {
   %>
   document.getElementById("name-div").style.display = "block";
   <%}%>

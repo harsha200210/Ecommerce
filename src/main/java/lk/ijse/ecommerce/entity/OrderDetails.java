@@ -22,4 +22,15 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name = "order_id", foreignKey = @ForeignKey(name = "FK_ORDERS"))
     private Orders order;
+
+    public OrderDetails(int quantity, Products product, Orders order) {
+        this.quantity = quantity;
+        this.product = product;
+        this.order = order;
+    }
+
+    public OrderDetails(int quantity, Products product) {
+        this.quantity = quantity;
+        this.product = product;
+    }
 }

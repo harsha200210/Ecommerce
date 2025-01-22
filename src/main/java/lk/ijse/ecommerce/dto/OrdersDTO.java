@@ -18,4 +18,11 @@ public class OrdersDTO {
     private double total;
     private List<OrderDetails> orderDetails;
     private Users user;
+
+    public OrdersDTO(Date date, double total, List<OrderDetails> orderDetails, Users user) {
+        this.date = date;
+        this.total = total;
+        this.orderDetails = orderDetails;
+        this.user = user;
+    }
 }

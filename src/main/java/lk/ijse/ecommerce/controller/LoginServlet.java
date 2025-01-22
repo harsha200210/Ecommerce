@@ -13,25 +13,30 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
 
+    public static String username = null;
+    public static String password = null;
+
     LoginBO loginBO = (LoginBO) BOFactory.getBO(BOFactory.Type.LOGIN);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            String username = req.getParameter("username");
+            String name = req.getParameter("username");
             String password = req.getParameter("password");
 
-            boolean checkedUser = loginBO.checkUser(username, password);
+            boolean checkedUser = loginBO.checkUser(name, password);
 
             if (checkedUser){
-                resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Successfully&checked=true&username=" + username);
+                resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Successfully&checked=true&username=" + name);
+                username = name;
+                LoginServlet.password = password;
             } else {
                 resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Unsuccessfully");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Unsuccessfully");
+            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Unsuccessfully Error");
         }
     }
 }

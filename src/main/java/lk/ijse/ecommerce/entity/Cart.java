@@ -18,4 +18,9 @@ public class Cart {
     private int cartId;
     private int productId;
     private int quantity;
+
+    public Cart(int productId, int quantity) {
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 }

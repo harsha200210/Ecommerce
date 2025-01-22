@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrdersDAO extends SuperDAO {
 
     List<Orders> getAllOrders() throws Exception;
+    void save(Orders orders) throws Exception;
 }

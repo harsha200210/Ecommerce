@@ -96,6 +96,7 @@
 
         <!-- Product Details Section -->
         <div class="col-md-6">
+            <input name="productId" hidden="hidden" value="<%=products.getProductId()%>">
             <h2><%=products.getProductName()%></h2>
             <p class="price">Rs. <%=products.getPrice()%></p>
             <textarea class="form-control" placeholder="Description" readonly><%=products.getDescription()%></textarea>
@@ -105,16 +106,16 @@
             <div class="d-flex align-items-center mb-3">
                 <p class="me-2">Quantity:</p>
                 <div class="quantity-control d-flex align-items-center">
-                    <button class="btn btn-light">+</button>
-                    <input type="text" value="1" class="form-control w-25 text-center mx-1" readonly>
-                    <button class="btn btn-light">-</button>
+                    <button class="btn btn-light btn-increase">+</button>
+                    <input type="text" value="0" class="form-control w-25 text-center mx-1 quantity-input" id="qty" name="quantity" readonly>
+                    <button class="btn btn-light btn-decrease">-</button>
                 </div>
             </div>
 
             <!-- Buttons Section -->
             <div class="d-flex gap-2">
-                <button class="btn btn-primary">Buy Now</button>
-                <button class="btn btn-secondary">Add Cart</button>
+                <button class="btn btn-primary" id="buy-now" type="submit">Buy Now</button>
+                <button class="btn btn-secondary" id="add-cart">Add Cart</button>
             </div>
         </div>
     </div>
@@ -126,5 +127,59 @@
     }
 %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $('.btn-increase').on('click', function() {
+        var $input = $(this).siblings('.quantity-input');
+        var currentValue = parseInt($input.val());
+        $input.val(currentValue + 1);
+    });
+
+    $('.btn-decrease').on('click', function() {
+        var $input = $(this).siblings('.quantity-input');
+        var currentValue = parseInt($input.val());
+        if (currentValue > 1) {
+            $input.val(currentValue - 1);
+        }
+    });
+
+    $('#add-cart').on('click', function () {
+        let qty = $('#qty').val();
+        let productId = <%=productId%>;
+
+        // Create a form dynamically
+        const form = $('<form>', {
+            action: '/E_Commerce_war_exploded/addToCart',
+            method: 'POST'
+        });
+
+        // Add form fields
+        form.append($('<input>', { type: 'hidden', name: 'productId', value: productId }));
+        form.append($('<input>', { type: 'hidden', name: 'quantity', value: qty }));
+
+        // Append the form to the body and submit
+        $('body').append(form);
+        form.submit();
+    });
+    $('#buy-now').on('click', function () {
+        let qty = $('#qty').val();
+        let productId = <%=productId%>;
+
+        // Create a form dynamically
+        const form = $('<form>', {
+            action: '/E_Commerce_war_exploded/itemClick',
+            method: 'GET'
+        });
+
+        // Add form fields
+        form.append($('<input>', { type: 'hidden', name: 'productId', value: productId }));
+        form.append($('<input>', { type: 'hidden', name: 'quantity', value: qty }));
+
+        // Append the form to the body and submit
+        $('body').append(form);
+        form.submit();
+    });
+
+</script>
 </body>
 </html>
