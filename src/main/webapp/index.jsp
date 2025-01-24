@@ -136,14 +136,13 @@
 </nav>
 
 <div id="menu" class="menu">
-  <a href="pages/cart.jsp"><button type="button" class="btn btn-outline-primary">My Cart</button></a>
-  <a href="pages/myOrders.jsp"><button type="button" class="btn btn-outline-primary">My Orders</button></a>
+  <a href="/E_Commerce_war_exploded/myOrders"><button type="button" class="btn btn-outline-primary">My Orders</button></a>
   <a href="pages/myProfile.jsp"><button type="button" class="btn btn-outline-primary">Manage Account</button></a>
   <a href="index.jsp"><button type="button" class="btn btn-outline-primary">Log Out</button></a>
 </div>
 <br><br>
 <!-- Category and Sort Filters -->
-<div class="container mb-4 d-flex justify-content-end align-items-center">
+<div class="container mb-4 d-flex justify-content-start align-items-center">
   <!-- Category Filter -->
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryFilterButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -194,7 +193,7 @@
 </div>
 
 <!-- Floating Cart Button -->
-<a href="pages/cart.jsp">
+<a href="/E_Commerce_war_exploded/cart">
   <button class="cart-btn">🛒</button>
 </a>
 
@@ -288,6 +287,7 @@
   loadDropDown();
 
   $(document).on('click', '.category-option', function () {
+    $(this).closest('.col').show();
     const selectedCategory = $(this).data('value');
 
     // Filter the product cards (adjust logic based on your use case)

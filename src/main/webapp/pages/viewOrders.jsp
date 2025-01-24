@@ -97,7 +97,7 @@
                     List<OrdersDTO> allOrders = (List<OrdersDTO>) request.getAttribute("orders");
                     if (allOrders != null && !allOrders.isEmpty()) {
                 %>
-                <tbody>
+                <tbody id="tblBody">
                 <% for (int i = 0;i < allOrders.size();i++) {
                     for (int j = 0; j < allOrders.get(i).getOrderDetails().size(); j++) {
                 %>
@@ -107,31 +107,31 @@
                     <td><%=allOrders.get(i).getOrderDetails().get(j).getProduct().getProductId()%></td>
                     <td><%=allOrders.get(i).getOrderDetails().get(j).getQuantity()%></td>
                     <td><%=allOrders.get(i).getOrderDetails().get(j).getProduct().getPrice() * allOrders.get(i).getOrderDetails().get(j).getQuantity()%></td>
-                    <td><button class="btn btn-sm manage-btn" onclick="tblButtonClick(i,j)">Manage Button</button></td>
+                    <td><button class="btn btn-sm manage-btn" onclick="tblButtonClick(<%=i%>,<%=j%>)">Manage Button</button></td>
                 </tr>
                 <%}
                 }%>
                 </tbody>
                 <%
                     }
-                %>
+                    assert allOrders != null;%>
             </table>
         </div>
 
         <!-- Details Section -->
         <div class="col-lg-4" id="visible-div">
             <div class="details-box mb-3">
-                <p><strong>Order ID:</strong> 001</p>
-                <p><strong>Customer ID:</strong> C123</p>
-                <p><strong>Date:</strong> 2025-01-18</p>
-                <p><strong>Product ID:</strong> P456</p>
-                <p><strong>Description:</strong> High-quality smartphone</p>
-                <p><strong>Category:</strong> Electronics</p>
-                <p><strong>Order Quantity:</strong> 1</p>
-                <p><strong>Total Price:</strong> $200</p>
+                <p id="order-id"><strong>Order ID:</strong> 001</p>
+                <p id="customer-id"><strong>Customer ID:</strong> C123</p>
+                <p id="date"><strong>Date:</strong> 2025-01-18</p>
+                <p id="product-id"><strong>Product ID:</strong> P456</p>
+                <p id="description"><strong>Description:</strong> High-quality smartphone</p>
+                <p id="category"><strong>Category:</strong> Electronics</p>
+                <p id="qty"><strong>Order Quantity:</strong> 1</p>
+                <p id="total"><strong>Total Price:</strong> $200</p>
             </div>
             <div class="image-container text-center">
-                <img src="uploads/878a42360f1629751d16875fa6917c7b.jpg" alt="Product Image">
+                <img alt="Product Image" id="img">
             </div>
         </div>
     </div>
@@ -166,8 +166,34 @@
 
     $("#visible-div").hide();
 
-    function tblButtonClick(orderIndex , orderDetailsIndex) {
+    function tblButtonClick(orderDetailsIndex , productDetailsIndex) {
+        console.log("Okay")
 
+        $.ajax({
+            url : "http://localhost:8080/E_Commerce_war_exploded/loadOrders",
+            method : "GET",
+            data : {
+                orderDetailsIndex : orderDetailsIndex,
+                productDetailsIndex : productDetailsIndex
+            },
+            success : function(response) {
+              console.log(response);
+                $("#order-id").text('Order ID : ' + response.orderId);
+                $("#customer-id").text('Customer ID : ' + response.customerId);
+                $("#date").text('Date : ' + response.orderDate);
+                $("#product-id").text('Product Name : ' + response.productName);
+                $("#description").text('Description : ' + response.description);
+                $("#category").text('Category : ' + response.category);
+                $("#qty").text('Quantity : ' + response.quantity);
+                $("#total").text('Order Total : ' + response.total);
+                $('#img').attr('src', response.image);
+
+                $("#visible-div").show();
+            },
+            error : function(xhr, status, error) {
+                console.log("Error: " + error);
+            }
+        })
     }
 </script>
 </body>

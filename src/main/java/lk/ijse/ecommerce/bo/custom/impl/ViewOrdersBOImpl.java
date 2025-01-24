@@ -23,7 +23,6 @@ public class ViewOrdersBOImpl implements ViewOrdersBO {
             List<OrderDetails> orderDetails = orders.getOrderDetails();
             for (int i = 0; i < orderDetails.size(); i++) {
                 orderDetails.get(i).getProduct().setImage(changeImagePath(orderDetails.get(i).getProduct().getImage()));
-                System.out.println(orderDetails.get(i).getProduct().getImage());
             }
             ordersDTOList.add(new OrdersDTO(orders.getOrderId(), orders.getDate(), orders.getTotal(), orderDetails, orders.getUser()));
         }
