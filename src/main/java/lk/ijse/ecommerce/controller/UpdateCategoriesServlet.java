@@ -26,9 +26,9 @@ public class UpdateCategoriesServlet extends HttpServlet {
             CategoriesDTO categoriesDTO = new CategoriesDTO(categoryId, categoryName, categories.getProducts());
             updateCategoriesBO.updateCategories(categoriesDTO);
 
-            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=");
         } catch (Exception e) {
-            resp.sendRedirect("/E_Commerce_war_exploded/pages/updateProducts.jsp");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=Category Update Unsuccessful !!");
         }
     }
 }

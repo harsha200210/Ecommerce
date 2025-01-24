@@ -137,8 +137,8 @@
 
 <div id="menu" class="menu">
   <a href="/E_Commerce_war_exploded/myOrders"><button type="button" class="btn btn-outline-primary">My Orders</button></a>
-  <a href="pages/myProfile.jsp"><button type="button" class="btn btn-outline-primary">Manage Account</button></a>
-  <a href="index.jsp"><button type="button" class="btn btn-outline-primary">Log Out</button></a>
+  <a href="/E_Commerce_war_exploded/myProfile"><button type="button" class="btn btn-outline-primary">Manage Account</button></a>
+  <a href="/E_Commerce_war_exploded/logOut"><button type="button" class="btn btn-outline-primary">Log Out</button></a>
 </div>
 <br><br>
 <!-- Category and Sort Filters -->

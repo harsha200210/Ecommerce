@@ -24,7 +24,7 @@ public class AdminServlet extends HttpServlet {
             boolean checkedUser = adminBO.checkAdmin(username, password);
 
             if (checkedUser){
-                resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers");
+                resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=");
             } else {
                 resp.sendRedirect("/E_Commerce_war_exploded/admin.jsp?message=Login Unsuccessfully");
             }

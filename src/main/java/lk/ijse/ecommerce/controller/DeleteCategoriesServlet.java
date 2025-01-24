@@ -26,9 +26,9 @@ public class DeleteCategoriesServlet extends HttpServlet {
             CategoriesDTO categoriesDTO = new CategoriesDTO(categoryId, categoryName, categories.getProducts());
             deleteCategoriesBO.deleteCategories(categoriesDTO);
 
-            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=");
         } catch (Exception e) {
-            resp.sendRedirect("/E_Commerce_war_exploded/pages/updateProducts.jsp");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=Category Delete Unsuccessful !!");
         }
     }
 }

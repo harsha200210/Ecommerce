@@ -61,4 +61,15 @@ public class UsersDAOImpl implements UsersDAO {
 
         return usersList;
     }
+
+    @Override
+    public void update(Users users) throws Exception {
+        Session session = FactoryConfiguration.getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.update(users);
+
+        transaction.commit();
+        session.close();
+    }
 }

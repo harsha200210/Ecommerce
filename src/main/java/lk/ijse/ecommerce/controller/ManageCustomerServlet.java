@@ -25,9 +25,15 @@ public class ManageCustomerServlet extends HttpServlet {
 
             req.setAttribute("customers", allCustomers);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/pages/manageCustomers.jsp");
+            String message = req.getParameter("message");
+            System.out.println(message + " " + message.getClass());
 
-            requestDispatcher.forward(req, resp);
+            if (message != null && !message.isEmpty()) {
+                req.getRequestDispatcher("/pages/manageCustomers.jsp?message=" + message).forward(req, resp);
+            } else {
+                req.getRequestDispatcher("/pages/manageCustomers.jsp").forward(req, resp);
+            }
+
         } catch (Exception e) {
 
         }

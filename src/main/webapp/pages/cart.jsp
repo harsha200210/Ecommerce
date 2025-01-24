@@ -1,6 +1,7 @@
 <%@ page import="lk.ijse.ecommerce.dto.CartDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="lk.ijse.ecommerce.dto.ProductsDTO" %><%--
+<%@ page import="lk.ijse.ecommerce.dto.ProductsDTO" %>
+<%@ page import="lk.ijse.ecommerce.controller.LoginServlet" %><%--
   Created by IntelliJ IDEA.
   User: RedMark
   Date: 1/16/2025
@@ -195,7 +196,16 @@
         total1 = total;
     });
 
-    $('#checkout').on('click', function () {
+    $('#checkout').on('click', function (e) {
+
+        <%
+          if (LoginServlet.username == null && LoginServlet.password == null){
+        %>
+            e.preventDefault();
+            alert('Login First !!');
+            return;
+        <%}%>
+
         let productDetails = [];
 
         // Collect selected products

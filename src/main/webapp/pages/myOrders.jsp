@@ -75,7 +75,7 @@
     <div class="row mb-3">
         <div class="col-12 text-end">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Order ID" aria-label="Order ID" id="search-input">
+                <input type="number" class="form-control" placeholder="Order ID" aria-label="Order ID" id="search-input">
                 <button class="btn btn-outline-primary" type="button" id="search-button">
                     search
                 </button>

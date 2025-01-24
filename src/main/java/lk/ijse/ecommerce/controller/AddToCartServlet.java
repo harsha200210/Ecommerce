@@ -27,7 +27,7 @@ public class AddToCartServlet extends HttpServlet {
 
             resp.sendRedirect("/E_Commerce_war_exploded/pages/itemClick.jsp?product=" + productId);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Cart Added Unsuccessful!!");
         }
     }
 }

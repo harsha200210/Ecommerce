@@ -57,7 +57,7 @@ public class CartServlet extends HttpServlet {
 
             response.sendRedirect("/E_Commerce_war_exploded/index");
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            response.sendRedirect("/E_Commerce_war_exploded/index?message=Order Placed Unsuccessful!!");
         }
     }
 }

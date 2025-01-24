@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-<a href="/E_Commerce_war_exploded/manageCustomers" class="back-btn">&larr;</a>
+<a href="/E_Commerce_war_exploded/manageCustomers?message=" class="back-btn">&larr;</a>
 <div class="container mt-4">
 
     <h2 class="manage-title text-center">Add Categories</h2>

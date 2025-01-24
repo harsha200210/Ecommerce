@@ -31,9 +31,9 @@ public class UpdateProductsServlet extends HttpServlet {
             ProductsDTO productsDTO = new ProductsDTO(productId,productName,description,quantity,price,categories);
             updateProductsBO.updateProduct(productsDTO);
 
-            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=");
         } catch (Exception e) {
-            resp.sendRedirect("/E_Commerce_war_exploded/pages/updateProducts.jsp");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=Product Update Unsuccessful !!");
         }
     }
 }

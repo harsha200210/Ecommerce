@@ -10,4 +10,5 @@ public interface UsersDAO extends SuperDAO {
     Users checkUser(String username, String password) throws Exception;
     Users checkAdmin(String username, String password) throws Exception;
     List<Users> getAllCustomers() throws Exception;
+    void update(Users users) throws Exception;
 }

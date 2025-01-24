@@ -25,10 +25,10 @@ public class SaveCategoriesServlet extends HttpServlet {
             CategoriesDTO categoriesDTO = new CategoriesDTO(categoryName,new ArrayList<>());
             saveCategoriesBO.saveCategory(categoriesDTO);
 
-            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers");
+            resp.sendRedirect("/E_Commerce_war_exploded/manageCustomers?message=");
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("/E_Commerce_war_exploded/pages/manageCustomers.jsp?message=Save Unsuccessfully");
+            resp.sendRedirect("/E_Commerce_war_exploded/pages/manageCustomers?message=Category Save Unsuccessfully");
         }
     }
 }

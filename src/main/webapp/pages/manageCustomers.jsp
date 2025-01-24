@@ -104,7 +104,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link" href="manageCustomers">View Customers</a>
+                <a class="nav-link" href="manageCustomers?message=">View Customers</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/E_Commerce_war_exploded/viewOrders">View Orders</a>
@@ -184,6 +184,16 @@
             %>
         </table>
     </div>
+
+        <%
+          String message = request.getParameter("message");
+
+          if (!message.equals("") && !message.isEmpty() && message != null) {
+        %>
+            <script>
+                alert("message : <%=message%>");
+            </script>
+        <% } %>
 </div>
 
 

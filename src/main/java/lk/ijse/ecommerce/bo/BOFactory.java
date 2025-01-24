@@ -6,7 +6,7 @@ public class BOFactory {
 
     public enum Type {
         SIGNUP, LOGIN, ADMIN, SAVEPRODUCTS, SEARCHPRODUCTS, UPDATEPRODUCTS, DELETEPRODUCTS, VIEWPRODUCTS, SAVECATEGORIES, SEARCHCATEGORIES, UPDATECATEGORIES, DELETECATEGORIES, VIEWCATEGORIES, MANAGECUSTOMER, VIEWORDERS, GETCATEGORIESNAMES,
-        Index, ADDTOCART, BUYNOW, CART
+        Index, ADDTOCART, BUYNOW, CART, MYPROFILE
     }
 
     public static SuperBO getBO(Type type) {
@@ -31,6 +31,7 @@ public class BOFactory {
             case ADDTOCART -> new AddToCartBOImpl();
             case BUYNOW -> new BuyNowBOImpl();
             case CART -> new CartBOImpl();
+            case MYPROFILE -> new MyProfileBOImpl();
             default -> throw new IllegalArgumentException("Invalid BO Type");
         };
     }

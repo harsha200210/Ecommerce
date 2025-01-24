@@ -1,6 +1,7 @@
 <%@ page import="lk.ijse.ecommerce.dao.custom.ProductsDAO" %>
 <%@ page import="lk.ijse.ecommerce.dao.DAOFactory" %>
-<%@ page import="lk.ijse.ecommerce.entity.Products" %><%--
+<%@ page import="lk.ijse.ecommerce.entity.Products" %>
+<%@ page import="lk.ijse.ecommerce.controller.LoginServlet" %><%--
   Created by IntelliJ IDEA.
   User: RedMark
   Date: 1/22/2025
@@ -171,7 +172,7 @@
 
         <!-- Buy Now Button -->
         <div class="text-center mt-4 mx-auto position-absolute" style="max-width: 400px; left: 0; right: 0; margin: auto">
-            <button type="submit" class="btn btn-buy mx-auto">Buy Now</button>
+            <button type="submit" class="btn btn-buy mx-auto" id="buy-now">Buy Now</button>
         </div>
     </form>
 </div>
@@ -184,5 +185,19 @@
 
 <!-- Bootstrap Icons -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $('#buy-now').click(function (e) {
+
+        <%
+            if (LoginServlet.username == null && LoginServlet.password == null){
+        %>
+            e.preventDefault();
+            alert('Login First !!');
+            return;
+        <%}%>
+
+    });
+</script>
 </body>
 </html>

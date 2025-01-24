@@ -26,7 +26,7 @@ public class BuyNowServlet extends HttpServlet {
 
             resp.sendRedirect("/E_Commerce_war_exploded/index");
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Order Placed Unsuccessful!!");
         }
     }
 }

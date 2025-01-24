@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Unsuccessfully Error");
+            resp.sendRedirect("/E_Commerce_war_exploded/index?message=Login Unsuccessfully");
         }
     }
 }

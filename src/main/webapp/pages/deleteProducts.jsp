@@ -52,7 +52,7 @@
     </style>
 </head>
 <body>
-<a href="/E_Commerce_war_exploded/manageCustomers" class="back-btn">&larr;</a>
+<a href="/E_Commerce_war_exploded/manageCustomers?message=" class="back-btn">&larr;</a>
 <div class="container mt-4">
 
     <h2 class="manage-title text-center">Delete Products</h2>
@@ -60,7 +60,7 @@
     <!-- Form Inputs -->
     <div class="col-lg-8">
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" id="search-input">
+            <input class="form-control me-2" type="number" placeholder="Search" id="search-input">
             <button class="btn btn-primary" id="search-button" type="button">Search</button>
         </form>
         <form action="/E_Commerce_war_exploded/deleteProducts" method="post">
