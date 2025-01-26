@@ -84,7 +84,7 @@ The e-commerce application allows administrators to manage products, categories,
 
 ## Demonstration Video
 
-Watch the application in action on [YouTube](#).
+Watch the application in action on [YouTube](https://youtu.be/OMzuCBqOTYM?si=VotzKpz-E217cqF0).
 
 ---
 
@@ -97,7 +97,7 @@ Watch the application in action on [YouTube](#).
 
 ## Submission Details
 - GitHub Repository: [E-Commerce](https://github.com/harsha200210/Ecommerce.git)
-- YouTube Video: [Watch](#)
+- YouTube Video: [Watch](https://youtu.be/OMzuCBqOTYM?si=VotzKpz-E217cqF0)
 
 ---
 
