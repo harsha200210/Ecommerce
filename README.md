@@ -96,7 +96,7 @@ Watch the application in action on [YouTube](#).
 ---
 
 ## Submission Details
-- GitHub Repository: [E-Commerce](link-to-repository)
+- GitHub Repository: [E-Commerce](https://github.com/harsha200210/Ecommerce.git)
 - YouTube Video: [Watch](#)
 
 ---
